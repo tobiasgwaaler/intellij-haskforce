@@ -20,7 +20,7 @@ public class CabalColorSettingsPage implements ColorSettingsPage {
     private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[] {
             new AttributesDescriptor("Keys", CabalSyntaxHighlighter.KEY),
             new AttributesDescriptor("Colon", CabalSyntaxHighlighter.COLON),
-            new AttributesDescriptor("Sections", CabalSyntaxHighlighter.CONFIG),
+            new AttributesDescriptor("Sections", CabalSyntaxHighlighter.COMPONENT_TYPE),
             new AttributesDescriptor("Comments", CabalSyntaxHighlighter.COMMENT)
     };
 

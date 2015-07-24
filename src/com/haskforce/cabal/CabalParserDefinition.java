@@ -1,6 +1,6 @@
 package com.haskforce.cabal;
 
-import com.haskforce.cabal.highlighting.CabalSyntaxHighlightingLexer;
+import com.haskforce.cabal.highlighting.CabalLexer;
 import com.haskforce.cabal.psi.CabalFile;
 import com.haskforce.cabal.psi.CabalTypes;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
@@ -24,7 +24,7 @@ public class CabalParserDefinition implements ParserDefinition {
     @NotNull
     @Override
     public Lexer createLexer(Project project) {
-        return new CabalSyntaxHighlightingLexer();
+        return new CabalLexer();
     }
 
     @Override
@@ -52,7 +52,7 @@ public class CabalParserDefinition implements ParserDefinition {
     @NotNull
     @Override
     public TokenSet getStringLiteralElements() {
-        return TokenSet.create(CabalTypes.VALUE_CHAR);
+        return TokenSet.create(CabalTypes.VALUE_LINE);
     }
 
     @NotNull

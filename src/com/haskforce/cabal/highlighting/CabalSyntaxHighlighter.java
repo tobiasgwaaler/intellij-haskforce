@@ -21,9 +21,9 @@ public class CabalSyntaxHighlighter extends SyntaxHighlighterBase {
             "CABAL_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
 
-    public static final TextAttributesKey CONFIG = TextAttributesKey.createTextAttributesKey(
-            "CABAL_CONFIG", DefaultLanguageHighlighterColors.NUMBER);
-    private static final TextAttributesKey[] CONFIG_KEYS = new TextAttributesKey[]{CONFIG};
+    public static final TextAttributesKey COMPONENT_TYPE = TextAttributesKey.createTextAttributesKey(
+            "CABAL_COMPONENT_TYPE", DefaultLanguageHighlighterColors.NUMBER);
+    private static final TextAttributesKey[] COMPONENT_TYPE_KEYS = new TextAttributesKey[]{COMPONENT_TYPE};
 
     public static final TextAttributesKey CONDITIONAL = TextAttributesKey.createTextAttributesKey(
             "CABAL_CONDITIONAL", DefaultLanguageHighlighterColors.INSTANCE_METHOD);
@@ -32,7 +32,7 @@ public class CabalSyntaxHighlighter extends SyntaxHighlighterBase {
     @NotNull
     @Override
     public Lexer getHighlightingLexer() {
-        return new CabalSyntaxHighlightingLexer();
+        return new CabalLexer();
     }
 
     @NotNull
@@ -47,8 +47,8 @@ public class CabalSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType == CabalTypes.KEY) {
             return KEY_KEYS;
         }
-        if (tokenType == CabalTypes.CONFIG) {
-            return CONFIG_KEYS;
+        if (tokenType == CabalTypes.COMPONENT_TYPE) {
+            return COMPONENT_TYPE_KEYS;
         }
         if (tokenType == CabalTypes.CONDITIONAL) {
             return CONDITIONAL_KEYS;
