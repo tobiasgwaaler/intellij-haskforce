@@ -1,5 +1,6 @@
 package com.haskforce.cabal.highlighting;
 
+import com.haskforce.cabal.lexer.CabalLexer;
 import com.haskforce.cabal.psi.CabalTypes;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;

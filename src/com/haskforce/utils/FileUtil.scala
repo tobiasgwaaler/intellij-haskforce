@@ -77,7 +77,7 @@ object FileUtil {
   }
 
   def join(base: String, paths: String*): String = {
-    paths.foldLeft(base) { (acc, path) => new File(acc, path.replaceFirst("^\\.(\\\\|/)", "")).getPath }
+    paths.foldLeft(base) { (acc, path) => new File(acc, path.replaceFirst("""^\.(\\|/)""", "")).getPath }
   }
 
   def findFilesRecursively(file: VirtualFile, predicate: VirtualFile => Boolean): Seq[VirtualFile] = {

@@ -9,9 +9,4 @@ public class CabalTokenType extends IElementType {
     public CabalTokenType(@NotNull @NonNls String debugName) {
         super(debugName, CabalLanguage.INSTANCE);
     }
-
-    @Override
-    public String toString() {
-        return "CabalTokenType." + super.toString();
-    }
 }

@@ -1,9 +1,9 @@
-package com.haskforce.cabal.highlighting;
+package com.haskforce.cabal.lexer;
 
 import com.intellij.lexer.FlexAdapter;
 
 /**
- * Created by crobbins on 8/2/14.
+ * Wraps the generated _CabalLexer to be used for syntax highlighting and parsing.
  */
 public class CabalLexer extends FlexAdapter {
     public CabalLexer() {
