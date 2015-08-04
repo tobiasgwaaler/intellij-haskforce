@@ -4,128 +4,151 @@ Cabal File
   PsiElement(COMMENT)('--  see http://haskell.org/cabal/users-guide/')
   PsiWhiteSpace('\n')
   PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  PACKAGE_NAME
     PsiElement(KEY)('name')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('                ')
-      PsiElement(VALUE_LINE)('fooua')
+      PsiElement(VALUE)('fooua')
       PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  PACKAGE_VERSION
     PsiElement(KEY)('version')
     PsiElement(:)(':')
-    VALUE
+    NUMBERS
       PsiWhiteSpace('             ')
-      PsiElement(VALUE_LINE)('0.1.0.0')
-      PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+      PsiErrorElement:Expected numbers
+        PsiElement(NUMBER)('0')
+        PsiElement(.)('.')
+        PsiElement(NUMBER)('1')
+        PsiElement(.)('.')
+        PsiElement(NUMBER)('0')
+        PsiElement(.)('.')
+        PsiElement(VALUE_WORD)('0a')
+  PsiWhiteSpace('\n')
+  CUSTOM_FIELD
     PsiElement(KEY)('synopsis')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('            ')
-      PsiElement(VALUE_LINE)('This is a thing made just fooua!')
+      PsiElement(VALUE)('This is a thing made just fooua!')
       PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('description')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('         ')
-      PsiElement(VALUE_LINE)('A description should be long and span multiple lines.  If')
+      PsiElement(VALUE)('A description should be long and span multiple lines.  If')
       PsiWhiteSpace('\n')
       PsiWhiteSpace('                     ')
-      PsiElement(VALUE_LINE)('it doesn't, it couldn't possibly be very descriptive, eh?')
+      PsiElement(VALUE)('it doesn't, it couldn't possibly be very descriptive, eh?')
+      PsiWhiteSpace('\n')
+      PsiWhiteSpace('                         ')
+      PsiElement(VALUE)('But then again, the fact that each line is prefixed with')
       PsiWhiteSpace('\n')
       PsiWhiteSpace('                     ')
-      PsiElement(VALUE_LINE)('But then again, the fact that each line is prefixed with')
+      PsiElement(VALUE)('whitespace is fun.')
       PsiWhiteSpace('\n')
-      PsiWhiteSpace('                     ')
-      PsiElement(VALUE_LINE)('whitespace is fun.')
-      PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('license')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('             ')
-      PsiElement(VALUE_LINE)('Apache-2.0')
+      PsiElement(VALUE)('Apache-2.0')
       PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('license-file')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('        ')
-      PsiElement(VALUE_LINE)('LICENSE')
+      PsiElement(VALUE)('LICENSE')
       PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('author')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('              ')
-      PsiElement(VALUE_LINE)('Cary M. Robbins')
+      PsiElement(VALUE)('Cary M. Robbins')
       PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('maintainer')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('          ')
-      PsiElement(VALUE_LINE)('carymrobbins@gmail.com')
+      PsiElement(VALUE)('carymrobbins@gmail.com')
       PsiWhiteSpace('\n')
   PsiElement(COMMENT)('-- copyright:           ')
   PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('category')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('            ')
-      PsiElement(VALUE_LINE)('Concurrency')
+      PsiElement(VALUE)('Concurrency')
       PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('build-type')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('          ')
-      PsiElement(VALUE_LINE)('Simple')
+      PsiElement(VALUE)('Simple')
       PsiWhiteSpace('\n')
   PsiElement(COMMENT)('-- extra-source-files:  ')
   PsiWhiteSpace('\n')
-  KEY_VALUE_PAIR
+  CUSTOM_FIELD
     PsiElement(KEY)('cabal-version')
     PsiElement(:)(':')
-    VALUE
+    FREEFORM
       PsiWhiteSpace('       ')
-      PsiElement(VALUE_LINE)('>=1.10')
+      PsiElement(VALUE)('>=1.10')
       PsiWhiteSpace('\n')
-      PsiWhiteSpace('\n')
+  PsiWhiteSpace('\n')
   COMPONENT
-    PsiElement(COMPONENT_TYPE)('executable')
+    COMPONENT_TYPE
+      PsiElement(COMPONENT_TYPE)('executable')
     PsiWhiteSpace(' ')
-    PsiElement(COMPONENT_NAME)('fooua')
-  PsiWhiteSpace('\n')
-  PsiElement(INDENT)('  ')
-  KEY_VALUE_PAIR
-    PsiElement(KEY)('main-is')
-    PsiElement(:)(':')
-    VALUE
-      PsiWhiteSpace('             ')
-      PsiElement(VALUE_LINE)('Main.hs')
+    COMPONENT_NAME
+      PsiElement(COMPONENT_NAME)('fooua')
+    PsiWhiteSpace('\n')
+    COMPONENT_BODY
+      PsiElement(INDENT)('  ')
+      CUSTOM_FIELD
+        PsiElement(KEY)('main-is')
+        PsiElement(:)(':')
+        FREEFORM
+          PsiWhiteSpace('             ')
+          PsiElement(VALUE)('Main.hs')
+          PsiWhiteSpace('\n')
+      PsiElement(COMMENT)('  -- other-modules:       ')
       PsiWhiteSpace('\n')
-  PsiElement(COMMENT)('  -- other-modules:       ')
-  PsiWhiteSpace('\n')
-  PsiElement(COMMENT)('  -- other-extensions:    ')
-  PsiWhiteSpace('\n')
-  PsiElement(INDENT)('  ')
-  KEY_VALUE_PAIR
-    PsiElement(KEY)('build-depends')
-    PsiElement(:)(':')
-    VALUE
-      PsiWhiteSpace('       ')
-      PsiElement(VALUE_LINE)('base >=4.7 && <4.8')
+      PsiElement(COMMENT)('  -- other-extensions:')
       PsiWhiteSpace('\n')
-  PsiElement(COMMENT)('  -- hs-source-dirs:      ')
-  PsiWhiteSpace('\n')
-  PsiElement(INDENT)('  ')
-  KEY_VALUE_PAIR
-    PsiElement(KEY)('default-language')
-    PsiElement(:)(':')
-    VALUE
-      PsiWhiteSpace('    ')
-      PsiElement(VALUE_LINE)('Haskell2010')
+      PsiWhiteSpace('\n')
+      PsiElement(INDENT)('  ')
+      CUSTOM_FIELD
+        PsiElement(KEY)('extensions')
+        PsiElement(:)(':')
+        FREEFORM
+          PsiWhiteSpace(' ')
+          PsiElement(VALUE)('TemplateHaskell')
+          PsiWhiteSpace('\n')
+          PsiWhiteSpace('              ')
+          PsiElement(VALUE)('QuasiQuotes')
+          PsiWhiteSpace('\n')
+      PsiWhiteSpace('\n')
+      PsiElement(INDENT)('  ')
+      CUSTOM_FIELD
+        PsiElement(KEY)('build-depends')
+        PsiElement(:)(':')
+        FREEFORM
+          PsiWhiteSpace('       ')
+          PsiElement(VALUE)('base >=4 && <5')
+          PsiWhiteSpace('\n')
+      PsiElement(COMMENT)('  -- hs-source-dirs:')
+      PsiWhiteSpace('\n')
+      PsiElement(INDENT)('  ')
+      CUSTOM_FIELD
+        PsiElement(KEY)('default-language')
+        PsiElement(:)(':')
+        FREEFORM
+          PsiWhiteSpace('    ')
+          PsiElement(VALUE)('Haskell2010')

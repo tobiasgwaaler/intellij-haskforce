@@ -24,7 +24,8 @@ import static com.haskforce.cabal.psi.CabalTypes.*;
 
 CRLF= \n|\r|\r\n
 WHITE_SPACE=[\ \t\f]
-NOT_WHITE_SPACE_OR_CRLF=[^\ \t\f\r\n]
+ALPHA=[A-Za-z]
+NUMBER=[0-9]
 KEY_PATTERN=[A-Za-z0-9\-]+\ *:
 END_OF_LINE_COMMENT=[\ \t\f]*--[^\r\n]*
 COLON=:
@@ -48,11 +49,22 @@ CONDITIONAL=(if [^\n\r]+|else)
 
 <WAITING_VALUE> {
   {CRLF} {WHITE_SPACE}* ({KEY_PATTERN} | {COMPONENT_TYPE} | {CONDITIONAL})
-                                          { yypushback(yylength()); yybegin(YYINITIAL); return WHITE_SPACE; }
+                                          { yypushback(yylength()); yybegin(YYINITIAL); return EMPTY; }
   {CRLF}                                  { return NEWLINE; }
   {WHITE_SPACE}+                          { return WHITE_SPACE; }
   {END_OF_LINE_COMMENT}                   { return COMMENT; }
-  {NOT_WHITE_SPACE_OR_CRLF} [^\r\n]+      { return VALUE_LINE; }
+  {NUMBER}+                               { return NUMBER; }
+  ({ALPHA} | {NUMBER})+                   { return VALUE_WORD; }
+  "."                                     { return DOT; }
+  ","                                     { return COMMA; }
+  "<"                                     { return LT; }
+  "<="                                    { return LTE; }
+  ">"                                     { return GT; }
+  ">="                                    { return GTE; }
+  "=="                                    { return EQ; }
+  "&&"                                    { return AND; }
+  "||"                                    { return OR; }
+  [^]                                     { return VALUE_WORD; }
 }
 
 <WAITING_COMPONENT> {
